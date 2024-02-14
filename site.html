@@ -79,9 +79,21 @@
 
         function checkResponse(response) {
             if (response === 'yes') {
-                // Your existing 'yes' logic
+                document.getElementById('valentine-question').style.display = 'none';
+                document.getElementById('valentine-photo').style.display = 'none';
+                document.getElementById('valentine-photo-yes').style.display = 'block';
+
+                // Change the background image after 'Yes' is clicked
+                document.getElementById('valentine-content').style.backgroundImage = "url('https://www.rover.com/blog/wp-content/uploads/iStock-1303535784.jpg')";
+
+                // Hide the buttons after 'Yes' is clicked
+                document.querySelectorAll('button').forEach(function(button) {
+                    button.style.display = 'none';
+                });
+
+                // Show the "Yayyyyy!!!!" text
+                document.getElementById('yay-text').style.display = 'block';
             } else if (response === 'no') {
-                // Your existing 'no' logic
             }
         }
 
