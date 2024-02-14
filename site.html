@@ -1,100 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: rgba(255, 255, 255, 0.8);
-            overflow: hidden;
-            margin: 0;
-        }
-
-        #valentine-question {
-            font-size: 3em;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-
-        #valentine-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            height: 100vh;
-            background-image: url('https://static.foxbusiness.com/foxbusiness.com/content/uploads/2022/01/iStock-1086871918.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            z-index: 1;
-            padding-top: 20px;
-        }
-        #valentine-photo {
-            flex: 1;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-        }
-        #valentine-photo-yes {
-            display: none;
-        }
-
-        #yay-text {
-            display: none;
-            font-size: 4em;
-            color: black;
-            font-weight: bold;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px 20px 20px 20px; /* Adjusted padding to exclude top padding */
-            border-radius: 10px;
-            position: absolute;
-            top: 0; /* Adjusted top to 0 */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        button {
-            cursor: pointer;
-            font-size: 2.67em;
-            padding: 10px 20px;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valentine's Day</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                text-align: center;
+                padding: 50px;
+                background-color: rgba(255, 255, 255, 0.8);
+                overflow: hidden;
+                margin: 0;
+            }
+    
+            #valentine-question {
+                font-size: 3em;
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+    
+            #valentine-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                height: 100vh;
+                background-image: url('https://static.foxbusiness.com/foxbusiness.com/content/uploads/2022/01/iStock-1086871918.jpg');
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                z-index: 1;
+                padding-top: 20px;
+            }
+            #valentine-photo {
+                flex: 1;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 10px;
+            }
+            #valentine-photo-yes {
+                display: none;
+            }
+    
+            #yay-text {
+                display: none;
+                font-size: 4em;
+                color: black;
+                font-weight: bold;
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px 20px 20px 20px; /* Adjusted padding to exclude top padding */
+                border-radius: 10px;
+                position: absolute;
+                top: 0; /* Adjusted top to 0 */
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+            }
+    
+            button {
+                cursor: pointer;
+                font-size: 2.67em;
+                padding: 10px 20px;
+            }
+        </style>
+    </head>
 <body>
     <div id="valentine-content">
         <div id="valentine-photo">
             <div id="valentine-question">Will you be my Valentine?</div>
             <button onclick="checkResponse('yes')">Yes</button>
-            <button onclick="checkResponse('no')" id="no-button">No</button>
+            <button id="no-button">No</button>
         </div>
         <div id="valentine-photo-yes"></div>
         <div id="yay-text">Yayyy!!!</div>
     </div>
 
     <script>
+        document.getElementById('no-button').addEventListener('mouseover', function() {
+            teleportNoButton();
+        });
+
         function checkResponse(response) {
             if (response === 'yes') {
-                document.getElementById('valentine-question').style.display = 'none';
-                document.getElementById('valentine-photo').style.display = 'none';
-                document.getElementById('valentine-photo-yes').style.display = 'block';
-
-                // Change the background image after 'Yes' is clicked
-                document.getElementById('valentine-content').style.backgroundImage = "url('https://www.rover.com/blog/wp-content/uploads/iStock-1303535784.jpg')";
-
-                // Hide the buttons after 'Yes' is clicked
-                document.querySelectorAll('button').forEach(function(button) {
-                    button.style.display = 'none';
-                });
-
-                // Show the "Yayyyyy!!!!" text
-                document.getElementById('yay-text').style.display = 'block';
+                // Your existing 'yes' logic
             } else if (response === 'no') {
-                // Teleport the "No" button to a random position
-                teleportNoButton();
+                // Your existing 'no' logic
             }
         }
 
